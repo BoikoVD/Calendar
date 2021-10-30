@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/Header";
+import Home from "./components/Home";
+import AboutUs from "./components/AboutUs";
+import { useSelector } from 'react-redux';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const onPage = useSelector(state => state.pages.onPage);
+
+	let pages = [
+		<Home />,
+		<AboutUs />
+	];
+
+	function getPage(pages, state) {
+		if (state === "home") return pages[0];
+		if (state === "aboutUs") return pages[1];
+	}
+
+	return (
+		<div className="wrapper">
+			<Header />
+			{getPage(pages, onPage)}
+		</div>
+	);
 }
 
 export default App;

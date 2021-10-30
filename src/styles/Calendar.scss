@@ -1,0 +1,177 @@
+.calendar {
+	@include adaptiv-value("padding-top", 183, -10, 1);
+	min-height: 100%;
+	color: $light-grey;
+	display: flex;
+	justify-content: center;
+	padding: 30px;
+	&__content {
+		width: 468px;
+		padding: 0 20px;
+		@media (max-width: 750px){
+			height: auto;
+			padding: 20px 20px 40px 20px;
+		}
+	}
+}
+.header-cal {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	text-transform: uppercase;
+	font-size: 19px;
+	padding-bottom: 10px;
+	
+	border-bottom: 1px solid $light-grey;
+	&__title {
+
+	}
+	&__nav-btn {
+		background: none;
+		position: relative;
+		width: 45px;
+		height: 50px;
+		transition: all 0.3s ease 0s;
+		&:before, &:after {
+			content: "";
+			position: absolute;
+			left: 50%;
+			height: 3px;
+			width: 10px;
+			background-color: $light-grey;
+		}
+		@media (any-hover: hover) {
+			&:hover{
+				background: rgba($light-grey, 0.1);
+			}
+		}
+		&:before {
+			top: calc(50% - 3px);
+			transform: translate(-50%, -50%) rotate(-45deg);
+		}
+		&:after {
+			top: calc(50% + 3px);
+			transform: translate(-50%, -50%) rotate(45deg);
+		}
+		&_prev {
+			margin: 0 0 0 -15px;
+		}
+		&_next {
+			margin: 0 -15px 0 0;
+			transform: scale(-1);
+		}
+	}
+}
+.body-cal {
+	padding: 25px 0px;
+	margin: 0 -25px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+	@media (max-width: 1000px){
+		margin: 0 -15px;
+	}
+	&__day-wrapper {
+		padding: 2px 0;
+		text-align: center;
+		display: flex;
+		justify-content: center;
+	}
+	&__day {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 50px;
+		height: 50px;
+		cursor: pointer;
+		color: $light-grey;
+		transition: all 0.3s ease 0s;
+		position: relative;
+		@media (max-width: 1020px){
+			width: 40px;
+			height: 40px;
+		}
+		@media (max-width: 400px){
+			width: 30px;
+			height: 30px;
+		}
+		&:after {
+			content: "";
+			width: 5px;
+			height: 5px;
+			border-radius: 50%;
+			background-color: $yellow;
+			position: absolute;
+			top: calc(50% + 15px);
+			left: 50%;
+			transform: translate(-50%, -50%);
+			transition: all 0.3s ease 0s;
+			opacity: 0;
+			visibility: hidden;
+			@media (max-width: 1020px){
+				top: calc(50% + 13px);
+			}
+			@media (max-width: 400px){
+				top: calc(50% + 11px);
+			}
+		}
+		@media (any-hover: hover) {
+			&:hover{
+				background-color: rgba($light-grey, 0.1);
+			}
+		}
+		&._current {
+			background-color: $yellow;
+			color: #000;
+			@media (any-hover: hover) {
+				&:hover{
+					background-color: rgba($yellow, 0.65);
+				}
+			}
+		}
+		&._prevMonth, &._nextMonth {
+			color: rgba($light-grey, 0.24);
+			pointer-events: none;
+			@media (any-hover: hover) {
+				&:hover{
+					background: none;
+				}
+			}
+		}
+		&._active {
+			color: $yellow;
+			&:after {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+		&._active._current{
+			color: #000;
+			&:after {
+				background-color: #000;
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+		&._active._prevMonth, &._active._nextMonth{
+			color: rgba($light-grey, 0.24);
+			&:after {
+				background-color: rgba($light-grey, 0.24);
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
+}
+.footer-cal {
+	display: flex;
+	justify-content: space-between;
+	padding: 20px 2px;
+	border-bottom: 1px solid $light-grey;
+	border-top: 1px solid $light-grey;
+	span {
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 24px;
+	}
+}
