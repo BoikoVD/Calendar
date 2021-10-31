@@ -1,0 +1,91 @@
+.day-wrapper {
+	padding: 2px 0;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+}
+.day {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	color: $light-grey;
+	//transition: all 0.3s ease 0s;
+	position: relative;
+	@media (max-width: 1020px){
+		width: 40px;
+		height: 40px;
+	}
+	@media (max-width: 400px){
+		width: 30px;
+		height: 30px;
+	}
+	&:after {
+		content: "";
+		width: 5px;
+		height: 5px;
+		border-radius: 50%;
+		background-color: $yellow;
+		position: absolute;
+		top: calc(50% + 15px);
+		left: 50%;
+		transform: translate(-50%, -50%);
+		transition: all 0.3s ease 0s;
+		opacity: 0;
+		visibility: hidden;
+		@media (max-width: 1020px){
+			top: calc(50% + 13px);
+		}
+		@media (max-width: 400px){
+			top: calc(50% + 11px);
+		}
+	}
+	@media (any-hover: hover) {
+		&:hover{
+			background-color: rgba($light-grey, 0.1);
+		}
+	}
+	&._current {
+		background-color: $yellow;
+		color: #000;
+		@media (any-hover: hover) {
+			&:hover{
+				background-color: rgba($yellow, 0.65);
+			}
+		}
+	}
+	&._prevMonth, &._nextMonth {
+		color: rgba($light-grey, 0.24);
+		pointer-events: none;
+		@media (any-hover: hover) {
+			&:hover{
+				background: none;
+			}
+		}
+	}
+	&._active {
+		color: $yellow;
+		&:after {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+	&._active._current{
+		color: #000;
+		&:after {
+			background-color: #000;
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+	&._active._prevMonth, &._active._nextMonth{
+		color: rgba($light-grey, 0.24);
+		&:after {
+			background-color: rgba($light-grey, 0.24);
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}

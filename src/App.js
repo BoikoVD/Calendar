@@ -1,6 +1,6 @@
 import Header from "./components/Header";
 import Home from "./components/Home";
-import AboutUs from "./components/AboutUs";
+import AboutMe from "./components/AboutMe";
 import { useSelector } from 'react-redux';
 
 function App() {
@@ -8,12 +8,12 @@ function App() {
 
 	let pages = [
 		<Home />,
-		<AboutUs />
+		<AboutMe />
 	];
 
 	function getPage(pages, state) {
 		if (state === "home") return pages[0];
-		if (state === "aboutUs") return pages[1];
+		if (state === "aboutMe") return pages[1];
 	}
 
 	return (

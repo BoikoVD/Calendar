@@ -17,8 +17,11 @@ $light-grey: #DFDFDF;
 @import "Header.scss";
 @import "Home.scss";
 @import "Calendar.scss";
+@import "CalendarDay.scss";
 @import "Popup.scss";
-@import "AboutUs.scss";
+@import "AboutMe.scss";
+
+
 
 *::-webkit-scrollbar {
 	width: 5px;
@@ -29,7 +32,6 @@ $light-grey: #DFDFDF;
 	background-color: $yellow;
 }
 *::-webkit-scrollbar-track {
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.2);
 	border-radius: 10px;
-	background-color: #f9f9fd;
+	background-color: rgba(0,0,0,0.1);
 }

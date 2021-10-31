@@ -21,20 +21,20 @@ function Header() {
 		dispatch({ type: "CHANGE_PAGE", payload: "home" });
 		toggleActiveClasses()
 	}
-	const pressAboutUs = () => {
-		dispatch({ type: "CHANGE_PAGE", payload: "aboutUs" });
+	const pressAboutMe = () => {
+		dispatch({ type: "CHANGE_PAGE", payload: "aboutMe" });
 		toggleActiveClasses()
 	}
 
 	return (
 		<header className="header">
 			<div className="header__logo">
-				<span>w e</span><span>R</span><span>devs</span>
+				<span>V D</span><span>B</span><span>oiko</span>
 			</div>
 			<nav className="header__nav nav" ref={navRef}>
 				<ul className="nav__list">
 					<li><button onClick={pressHome} className={currentPage === "home" ? "nav__btn _active" : "nav__btn"}>Home</button></li>
-					<li><button onClick={pressAboutUs} className={currentPage === "aboutUs" ? "nav__btn _active" : "nav__btn"}>About Us</button></li>
+					<li><button onClick={pressAboutMe} className={currentPage === "aboutMe" ? "nav__btn _active" : "nav__btn"}>About Me</button></li>
 				</ul>
 			</nav>
 			<button type="button" className="header__icon-menu icon-menu" ref={menuIconRef} onClick={pressMenuIcon}>

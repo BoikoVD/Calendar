@@ -12,7 +12,7 @@ function Home() {
 							Choose the day for the meeting
 						</div>
 						<div className="home__subtitle">
-							<p>We encourage you to book your appointment online.</p>
+							<p>I encourage you to book your appointment online.</p>
 							<p>This will save you time.</p>
 						</div>
 					</div>

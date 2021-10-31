@@ -1,5 +1,6 @@
 .popup {
 	position: absolute;
+	z-index: 2;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -8,9 +9,15 @@
 	transition: all 0.3s ease 0s;
 	visibility: hidden;
 	opacity: 0;
+	.popup__input::after, .popup__input::before {
+		display: none;
+	}
 	&._active {
 		visibility: visible;
 		opacity: 1;
+		.popup__input::after, .popup__input::before {
+			display: inline-block;
+		}
 	}
 	&__wrapper {
 		width: 100%;
@@ -22,9 +29,11 @@
 	&__form {
 		padding: 25px;
 		max-width: 510px;
-		height: 140px;
 		background-color: #fff;
 		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: flex-end;
 		position: relative;
 		@media (max-width: 600px){
 			flex-direction: column;
@@ -32,17 +41,15 @@
 		}
 	}
 	&__column {
-		@media (max-width: 600px){
 			display: flex;
 			flex-direction: column;
 			margin-bottom: 10px;
-		}
+			position: relative;
 	}
 	&__label {
 		color: #A2A2A2;
 		letter-spacing: -0.4px;
 		font-size: 20px;
-		//line-height: 24px;
 		margin-bottom: 8px;
 		display: inline-block;
 	}
@@ -56,10 +63,42 @@
 		font-size: 22px;
 		font-weight: 500;
 		color: #000;
+		&:focus {
+			border: none;
+		}
 		&:disabled {
 			background-color: #fff;
 		}
-
+	}
+	&__btn {
+		width: 220px;
+		height: 54px;
+		font-size: 22px;
+		font-weight: 500;
+		display: none;
+		transition: all 0.3s ease 0s;
+		@media (max-width: 600px){
+			margin-top: 25px;
+		}
+		&._active {
+			display: inline-block;
+		}
+	}
+	&__add-meeting {
+		background: $yellow;
+		@media (any-hover: hover) {
+			&:hover{
+				background: #e0b800;
+			}
+		}
+	}
+	&__cancel-meeting {
+		background: #fa6966;
+		@media (any-hover: hover) {
+			&:hover{
+				background: #d65654;
+			}
+		}
 	}
 	&__close{
 		width: 28px;
@@ -71,7 +110,7 @@
 		transition: all 0.3s ease 0s;
 		@media (any-hover: hover) {
 			&:hover{
-				background-color: #e3cc27;
+				background-color: #e0b800;
 			}
 		}
 		&:before, &:after {
@@ -91,3 +130,43 @@
 		}
 	}
 }
+
+input[type=time]::-webkit-calendar-picker-indicator {
+	display: none;
+ }
+input[type=time] {
+	&::before, &::after {
+		position: absolute;
+		visibility: hidden;
+		opacity: 0;
+		border: 1px solid #000;
+		background-color: #fff;
+		transition: all 0.3s ease 0s;
+	}
+	&::before {
+		content: "Working hours 9:00-18:00";
+		bottom: 0;
+		left: 50%;
+		transform: translate(-50%, 90%);
+		width: 95%;
+		font-size: 16px;
+		padding: 3px;
+	}
+	&::after {
+		content: "";
+		bottom: -5px;
+		left: 10%;
+		width: 15px;
+		height: 15px;
+		border-width: 1px 0 0 1px;
+		transform: rotate(45deg);
+	}
+	&:invalid {
+		border: 2px solid red;
+		&::before, &::after {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+ }
+ 

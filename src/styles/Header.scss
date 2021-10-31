@@ -17,20 +17,21 @@
 		z-index: 2;
 		display: flex;
 		align-items: flex-end;
+		pointer-events: none;
 		span {
 			font-weight: 700;
 			&:first-child {
 				display: inline-flex;
 				align-items: center;
 				justify-content: center;
-				font-size: 33px;
-				line-height: 22px;
+				font-size: 28px;
+				line-height: 24px;
 				letter-spacing: 0;
 				width: 34px;
 				height: 50px;
 				text-align: center;
 				background-color: $yellow;
-				padding: 0 0 2px 0;
+				padding: 2px 0 0 0;
 				transform-origin: 0 0;
 				transform: scale(0.84, 1);
 			}
