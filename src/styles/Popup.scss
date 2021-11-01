@@ -9,13 +9,13 @@
 	transition: all 0.3s ease 0s;
 	visibility: hidden;
 	opacity: 0;
-	.popup__input::after, .popup__input::before {
+	.popup__column_time:after, .popup__column_time:before {
 		display: none;
 	}
 	&._active {
 		visibility: visible;
 		opacity: 1;
-		.popup__input::after, .popup__input::before {
+		.popup__column_time:after, .popup__column_time:before {
 			display: inline-block;
 		}
 	}
@@ -41,10 +41,44 @@
 		}
 	}
 	&__column {
-			display: flex;
-			flex-direction: column;
-			margin-bottom: 10px;
-			position: relative;
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 10px;
+		position: relative;
+	}
+	&__column_time {
+		&::before, &::after {
+			position: absolute;
+			border: 1px solid #000;
+			visibility: hidden;
+			opacity: 0;
+			background-color: #fff;
+			transition: all 0.3s ease 0s;
+		}
+		&::before {
+			content: "Working hours 9:00-18:00";
+			bottom: 0;
+			left: 50%;
+			transform: translate(-50%, 90%);
+			width: 95%;
+			font-size: 16px;
+			padding: 3px;
+		}
+		&::after {
+			content: "";
+			bottom: -5px;
+			left: 10%;
+			width: 15px;
+			height: 15px;
+			border-width: 1px 0 0 1px;
+			transform: rotate(45deg);
+		}
+		&._invalid {
+			&::before, &::after {
+				visibility: visible;
+				opacity: 1;
+			}
+		}
 	}
 	&__label {
 		color: #A2A2A2;
@@ -63,11 +97,13 @@
 		font-size: 22px;
 		font-weight: 500;
 		color: #000;
+		cursor: text;
 		&:focus {
-			border: none;
+			outline: none;
 		}
 		&:disabled {
 			background-color: #fff;
+			cursor: auto;
 		}
 	}
 	&__btn {
@@ -130,43 +166,3 @@
 		}
 	}
 }
-
-input[type=time]::-webkit-calendar-picker-indicator {
-	display: none;
- }
-input[type=time] {
-	&::before, &::after {
-		position: absolute;
-		visibility: hidden;
-		opacity: 0;
-		border: 1px solid #000;
-		background-color: #fff;
-		transition: all 0.3s ease 0s;
-	}
-	&::before {
-		content: "Working hours 9:00-18:00";
-		bottom: 0;
-		left: 50%;
-		transform: translate(-50%, 90%);
-		width: 95%;
-		font-size: 16px;
-		padding: 3px;
-	}
-	&::after {
-		content: "";
-		bottom: -5px;
-		left: 10%;
-		width: 15px;
-		height: 15px;
-		border-width: 1px 0 0 1px;
-		transform: rotate(45deg);
-	}
-	&:invalid {
-		border: 2px solid red;
-		&::before, &::after {
-			visibility: visible;
-			opacity: 1;
-		}
-	}
- }
- 
