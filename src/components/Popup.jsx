@@ -9,15 +9,13 @@ function Popup() {
 	const isActive = useSelector(state => state.popup.onPopup);
 	const date = useSelector(state => state.popup.popupInputDate);
 	const activeDates = useSelector(state => state.dates.dates);
+	const startWorkTime = useSelector(state => state.myWorkTime.start);
+	const finishWorkTime = useSelector(state => state.myWorkTime.finish);
 
 	const [time, setTime] = React.useState('');
+	const popupRef = React.useRef();
 	const buttonsRef = React.useRef();
 	const inputTimeRef = React.useRef();
-
-	const myWorkTime = {
-		start: "09:00",
-		finish: "18:00",
-	}
 
 	function activeDay(date) {
 		setTime(format(date, "kk:mm"));
@@ -33,7 +31,7 @@ function Popup() {
 	}
 	function closePopup() {
 		dispatch({ type: "ON_POPUP", payload: false });
-	};
+	}
 	function timeSplit(time) {
 		let timeArr = time.split(/\s*:\s*/);
 		let hours = Number(timeArr[0]);
@@ -45,10 +43,25 @@ function Popup() {
 	}
 	function getTimes(time) {
 		let thisTime = timeSplit(time);
-		let startTime = timeSplit(myWorkTime.start);
-		let finishTime = timeSplit(myWorkTime.finish);
+		let startTime = timeSplit(startWorkTime);
+		let finishTime = timeSplit(finishWorkTime);
 		return { thisTime, startTime, finishTime }
 	}
+	React.useEffect(() => {
+		if (isActive) {
+			popupRef.current.addEventListener("click", function (e) {
+				if (!e.target.closest('.popup__form')) {
+					closePopup();
+				}
+			});
+		}
+		let { thisTime, startTime, finishTime } = getTimes(time);
+		if (thisTime.hours < startTime.hours || (thisTime.hours >= finishTime.hours && thisTime.minutes !== 0) || isNaN(thisTime.hours)) {
+			inputTimeRef.current.classList.add('_invalid');
+		} else {
+			inputTimeRef.current.classList.remove('_invalid');
+		}
+	});
 
 	React.useEffect(() => {
 		if (activeDates.length === 0) {
@@ -63,17 +76,7 @@ function Popup() {
 				}
 			}
 		}
-	}, [date]);
-
-	React.useEffect(() => {
-		let { thisTime, startTime, finishTime } = getTimes(time);
-		if (thisTime.hours < startTime.hours || (thisTime.hours >= finishTime.hours && thisTime.minutes !== 0) || thisTime.hours === NaN) {
-			inputTimeRef.current.classList.add('_invalid');
-		} else {
-			inputTimeRef.current.classList.remove('_invalid');
-		}
-	}, [time]);
-
+	}, [date, activeDates]);
 
 	const clickOnAddMeeting = () => {
 		let { thisTime, startTime, finishTime } = getTimes(time);
@@ -83,7 +86,6 @@ function Popup() {
 		if (thisDate >= startDate && thisDate <= finishDate) {
 			let newActiveDates = [...activeDates, thisDate];
 			dispatch({ type: "ADD_DATE", payload: newActiveDates });
-			closePopup();
 		} else return;
 	};
 	const clickOnCancelMeeting = () => {
@@ -94,7 +96,6 @@ function Popup() {
 			}
 		}
 		dispatch({ type: "REMOVE_DATE", payload: newActiveDates });
-		closePopup()
 	};
 
 	const clickOnClosePopup = () => {
@@ -102,7 +103,7 @@ function Popup() {
 	}
 
 	return (
-		<div className={isActive ? "popup _active" : "popup"}>
+		<div className={isActive ? "popup _active" : "popup"} ref={popupRef}>
 			<div className="popup__wrapper">
 				<form className="popup__form">
 					<div className="popup__column">
@@ -117,7 +118,7 @@ function Popup() {
 						<label htmlFor="input-time" className="popup__label">Time</label>
 						<InputTime time={time} setTime={setTime} />
 					</div>
-					<div className="popup__column" ref={buttonsRef}>
+					<div className="popup__column popup__column_buttons" ref={buttonsRef}>
 						<button onClick={clickOnAddMeeting} className="popup__btn popup__add-meeting _active" type="button">Add meeting</button>
 						<button onClick={clickOnCancelMeeting} className="popup__btn popup__cancel-meeting" type="button">Cancel meeting</button>
 					</div>

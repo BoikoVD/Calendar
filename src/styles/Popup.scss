@@ -45,38 +45,43 @@
 		flex-direction: column;
 		margin-bottom: 10px;
 		position: relative;
-	}
-	&__column_time {
-		&::before, &::after {
-			position: absolute;
-			border: 1px solid #000;
-			visibility: hidden;
-			opacity: 0;
-			background-color: #fff;
-			transition: all 0.3s ease 0s;
-		}
-		&::before {
-			content: "Working hours 9:00-18:00";
-			bottom: 0;
-			left: 50%;
-			transform: translate(-50%, 90%);
-			width: 95%;
-			font-size: 16px;
-			padding: 3px;
-		}
-		&::after {
-			content: "";
-			bottom: -5px;
-			left: 10%;
-			width: 15px;
-			height: 15px;
-			border-width: 1px 0 0 1px;
-			transform: rotate(45deg);
-		}
-		&._invalid {
+		&_time {
 			&::before, &::after {
-				visibility: visible;
-				opacity: 1;
+				position: absolute;
+				border: 1px solid #000;
+				visibility: hidden;
+				opacity: 0;
+				background-color: #fff;
+				transition: all 0.3s ease 0s;
+			}
+			&::before {
+				content: "Working hours 9:00-18:00";
+				bottom: 0;
+				left: 50%;
+				transform: translate(-50%, 90%);
+				width: 95%;
+				font-size: 16px;
+				padding: 3px;
+			}
+			&::after {
+				content: "";
+				bottom: -5px;
+				left: 10%;
+				width: 15px;
+				height: 15px;
+				border-width: 1px 0 0 1px;
+				transform: rotate(45deg);
+			}
+			&._invalid {
+				&::before, &::after {
+					visibility: visible;
+					opacity: 1;
+				}
+			}
+		}
+		&_buttons {
+			@media (max-width: 600px){
+				margin-top: 25px;
 			}
 		}
 	}
@@ -112,10 +117,7 @@
 		font-size: 22px;
 		font-weight: 500;
 		display: none;
-		transition: all 0.3s ease 0s;
-		@media (max-width: 600px){
-			margin-top: 25px;
-		}
+		transition: background-color 0.3s ease 0s;
 		&._active {
 			display: inline-block;
 		}
