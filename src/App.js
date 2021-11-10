@@ -1,26 +1,20 @@
-import Header from "./components/Header";
-import Home from "./components/Home";
-import AboutMe from "./components/AboutMe";
-import { useSelector } from 'react-redux';
+import { BrowserRouter } from "react-router-dom";
+import Header from "./components/Pages/Header/Header";
+import AppRouter from "./components/AppRouter";
+import Modal from './components/UI/Modal/Modal';
 
 function App() {
-	const onPage = useSelector(state => state.pages.onPage);
 
-	let pages = [
-		<Home />,
-		<AboutMe />
-	];
-
-	function getPage(pages, state) {
-		if (state === "home") return pages[0];
-		if (state === "aboutMe") return pages[1];
-	}
+	console.log('Render: App');
 
 	return (
-		<div className="wrapper">
-			<Header />
-			{getPage(pages, onPage)}
-		</div>
+		<BrowserRouter>
+			<div className="wrapper">
+				<Header />
+				<AppRouter />
+				<Modal ></Modal>
+			</div>
+		</BrowserRouter>
 	);
 }
 

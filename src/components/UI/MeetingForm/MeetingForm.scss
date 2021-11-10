@@ -1,0 +1,87 @@
+.meeting-form {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-end;
+	position: relative;
+	@media (max-width: 600px){
+		flex-direction: column;
+		height: auto;
+	}
+	&__column {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 10px;
+		position: relative;
+		&_buttons {
+			@media (max-width: 600px){
+				margin-top: 25px;
+			}
+		}
+	}
+	&__label {
+		color: #A2A2A2;
+		letter-spacing: -0.4px;
+		font-size: 20px;
+		margin-bottom: 8px;
+		display: inline-block;
+	}
+	&__input {
+		display: inline-block;
+		width: 220px;
+		height: 54px;
+		border: 2px solid #FDD000;
+		box-shadow: 0px 0px 25px #0000000D;
+		padding: 14px 20px;
+		font-size: 22px;
+		font-weight: 500;
+		color: #000;
+		cursor: text;
+		&:focus {
+			outline: none;
+		}
+		&:disabled {
+			background-color: #fff;
+			cursor: auto;
+		}
+	}
+	&__btn {
+		width: 220px;
+		height: 54px;
+		font-size: 22px;
+		font-weight: 500;
+		transition: background-color 0.3s ease 0s;
+		display: inline-block;
+
+		background: $yellow;
+		@media (any-hover: hover) {
+			&:hover{
+				background: #e0b800;
+			}
+		}
+		&._red {
+			background: #fa6966;
+			@media (any-hover: hover) {
+				&:hover{
+					background: #d65654;
+				}
+			}
+		}
+	}
+	&__add-meeting {
+		background: $yellow;
+		@media (any-hover: hover) {
+			&:hover{
+				background: #e0b800;
+			}
+		}
+	}
+	&__cancel-meeting {
+		background: #fa6966;
+		@media (any-hover: hover) {
+			&:hover{
+				background: #d65654;
+			}
+		}
+	}
+}

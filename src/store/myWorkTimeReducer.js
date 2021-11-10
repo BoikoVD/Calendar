@@ -6,7 +6,7 @@ const defaultState = {
 export const myWorkTimeReducer = (state = defaultState, action) => {
 	switch (action.type) {
 		case "CHANGE_WORK_TIME":
-			return { ...state, start: action.start, finish: action.finish };
+			return { ...state, start: action.payload };
 		default: return state;
 	}
 }

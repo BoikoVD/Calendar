@@ -1,7 +1,10 @@
-import Calendar from "./Calendar";
-import Popup from "./Popup";
+import Calendar from "../../UI/Calendar/Calendar";
+import Popup from "../../UI/Modal/Modal";
 
 function Home() {
+
+	console.log('Render: Home');
+
 	return (
 		<div className="home">
 			<div className="home__content">
@@ -20,7 +23,6 @@ function Home() {
 						<Calendar />
 					</div>
 				</div>
-				<Popup />
 			</div>
 		</div>
 	);

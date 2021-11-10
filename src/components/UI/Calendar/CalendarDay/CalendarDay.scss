@@ -65,14 +65,14 @@
 			}
 		}
 	}
-	&._active {
+	&.active {
 		color: $yellow;
 		&:after {
 			opacity: 1;
 			visibility: visible;
 		}
 	}
-	&._active._current{
+	&.active._current{
 		color: #000;
 		&:after {
 			background-color: #000;
@@ -80,7 +80,7 @@
 			visibility: visible;
 		}
 	}
-	&._active._prevMonth, &._active._nextMonth{
+	&.active._prevMonth, &.active._nextMonth{
 		color: rgba($light-grey, 0.24);
 		&:after {
 			background-color: rgba($light-grey, 0.24);

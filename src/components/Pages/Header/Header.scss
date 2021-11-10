@@ -1,0 +1,21 @@
+.header {
+	position: fixed;
+	z-index: 5;
+	width: 100%;
+	display: flex;
+	top: 0;
+	left: 0;
+	justify-content: space-between;
+	align-items: flex-end;
+	background-color: #fff;
+	@include adaptiv-value("padding-left", 110, 10, 1);
+	@include adaptiv-value("padding-right", 110, 10, 1);
+	@include adaptiv-value("padding-top", 50, 10, 1);
+	@include adaptiv-value("padding-bottom", 50, 10, 1);
+	&__nav {
+		
+	}
+	&__icon-menu {
+		display: none;
+	}
+}

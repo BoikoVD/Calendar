@@ -7,10 +7,10 @@ import {
 	setDay,
 	addMonths,
 } from 'date-fns';
-import CalendarDay from './CalendarDay';
+import CalendarDay from './CalendarDay/CalendarDay';
 
 function Calendar() {
-	let currentDate = new Date();
+	const currentDate = new Date();
 	const [thisDate, setThisDate] = React.useState(currentDate);
 
 	function getFirstAndLastDaysOfCalendar(date) {
@@ -28,16 +28,14 @@ function Calendar() {
 		end: lastDayOfCalendar
 	});
 
-	let calendarList = eachDaysOfCalendar.map(day => {
-		return <CalendarDay day={day} thisDate={thisDate} currentDate={currentDate} key={day} />
-	});
-
 	const clockOnPrevBtn = () => {
 		setThisDate(addMonths(thisDate, -1));
 	};
 	const clickOnNextBtn = () => {
 		setThisDate(addMonths(thisDate, 1));
 	};
+
+	console.log('Render: Calendar');
 
 	return (
 		<div className="calendar">
@@ -48,7 +46,7 @@ function Calendar() {
 					<button className="header-cal__nav-btn header-cal__nav-btn_next" onClick={clickOnNextBtn}></button>
 				</div>
 				<div className="calendar__body-cal body-cal">
-					{calendarList}
+					{eachDaysOfCalendar.map(day => { return <CalendarDay day={day} thisDate={thisDate} currentDate={currentDate} key={day} /> })}
 				</div>
 				<div className="calendar__footer footer-cal">
 					<span>S</span>

@@ -33,22 +33,24 @@ function CalendarDay({ day, thisDate, currentDate }) {
 		if (activeDates.size !== 0) {
 			for (let date of activeDates) {
 				if (JSON.stringify(day) === JSON.stringify(set(date, { hours: 0, minutes: 0, seconds: 0 }))) {
-					return "_active "
+					return "active "
 				};
 			}
 			return '';
 		}
 	}
 
-	const openPopup = (date) => {
-		dispatch({ type: "ON_POPUP", payload: true });
-		dispatch({ type: "DATE_POPUP", popupInputDate: date });
+	const openModal = (date) => {
+		dispatch({ type: "ON_MODAL", payload: true });
+		dispatch({ type: "DATE_MODAL", modalInputDate: date });
 	}
 
 	function clickOnDay(e) {
 		let date = parseJSON(e.target.getAttribute('data-date'));
-		openPopup(date);
+		openModal(date);
 	}
+
+	console.log('Render: CalendarDay');
 
 	return (
 		<div className="day-wrapper">

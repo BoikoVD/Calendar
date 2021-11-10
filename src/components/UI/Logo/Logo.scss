@@ -1,0 +1,37 @@
+.logo {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	align-items: flex-end;
+	pointer-events: none;
+	span {
+		font-weight: 700;
+		&:first-child {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 28px;
+			line-height: 24px;
+			letter-spacing: 0;
+			width: 34px;
+			height: 50px;
+			text-align: center;
+			background-color: $yellow;
+			padding: 2px 0 0 0;
+			transform-origin: 0 0;
+			transform: scale(0.84, 1);
+		}
+		&:nth-child(2) {
+			line-height: 47px;
+			font-size: 71px;
+			transform-origin: 0 0;
+			transform: scale(0.8, 1);
+			margin: 0 0 0 -5px;
+		}
+		&:last-child {
+			line-height: 26px;
+			font-size: 41px;
+			margin: 0 0 0 -10px;
+		}
+	}
+}
