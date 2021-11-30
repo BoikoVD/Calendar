@@ -1,5 +1,6 @@
 import Calendar from "../../UI/Calendar/Calendar";
 import Popup from "../../UI/Modal/Modal";
+import bg from "../../../assets/img/bg2.jpg";
 
 function Home() {
 
@@ -8,7 +9,7 @@ function Home() {
 	return (
 		<div className="home">
 			<div className="home__content">
-				<img src="/img/bg.png" alt="" />
+				<img src={bg} alt="" />
 				<div className="home__column">
 					<div className="home__text">
 						<div className="home__title">
