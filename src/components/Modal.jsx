@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import MeetingForm from '../MeetingForm/MeetingForm';
+import MeetingForm from './MeetingForm';
 
 const Modal = () => {
 	const dispatch = useDispatch();

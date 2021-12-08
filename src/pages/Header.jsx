@@ -1,7 +1,7 @@
 import React from 'react';
-import Logo from '../../UI/Logo/Logo';
-import Navigation from '../../UI/Navigation/Navigation';
-import NavBurger from '../../UI/NavBurger/NavBurger';
+import Logo from '../components/Logo';
+import Navigation from '../components/Navigation';
+import NavBurger from '../components/NavBurger';
 
 function Header() {
 	const burgerRef = React.useRef();

@@ -7,7 +7,7 @@ import {
 	setDay,
 	addMonths,
 } from 'date-fns';
-import CalendarDay from './CalendarDay/CalendarDay';
+import CalendarDay from './CalendarDay';
 
 function Calendar() {
 	const currentDate = new Date();

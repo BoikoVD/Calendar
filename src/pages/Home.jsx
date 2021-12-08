@@ -1,6 +1,6 @@
-import Calendar from "../../UI/Calendar/Calendar";
-import Popup from "../../UI/Modal/Modal";
-import bg from "../../../assets/img/bg2.jpg";
+import Calendar from "../components/Calendar";
+import Popup from "../components/Modal";
+import bg from "../assets/img/bg2.jpg";
 
 function Home() {
 

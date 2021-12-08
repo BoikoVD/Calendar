@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { format, set } from 'date-fns';
-import InputTime from '../InputTime/InputTime';
+import InputTime from './InputTime';
 
 function MeetingForm() {
 	const dispatch = useDispatch();

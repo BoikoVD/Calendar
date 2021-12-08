@@ -1,6 +1,6 @@
 import { Route, Switch, Redirect } from "react-router-dom";
-import Home from './Pages/Home/Home';
-import AboutMe from './Pages/AboutMe/AboutMe';
+import Home from '../pages/Home';
+import AboutMe from '../pages/AboutMe';
 
 function AppRouter() {
 

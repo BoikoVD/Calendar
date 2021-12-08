@@ -28,17 +28,17 @@ $light-grey: #DFDFDF;
 
 @import "App.scss";
 
-@import "../components/Pages/Header/Header.scss";
-@import "../components/UI/Logo/Logo.scss";
-@import "../components/UI/Navigation/Navigation.scss";
-@import "../components/UI/NavBurger/NavBurger.scss";
+@import "Header.scss";
+@import "Logo.scss";
+@import "Navigation.scss";
+@import "NavBurger.scss";
 
-@import "../components/Pages/Home/Home.scss";
-@import "../components/Pages/AboutMe/AboutMe.scss";
-@import "../components/UI/Calendar/Calendar.scss";
-@import "../components/UI/Calendar/CalendarDay/CalendarDay.scss";
-@import "../components/UI/Modal/Modal.scss";
-@import "../components/UI/MeetingForm/MeetingForm.scss";
-@import "../components/UI/InputTime/InputTime.scss";
+@import "Home.scss";
+@import "AboutMe.scss";
+@import "Calendar.scss";
+@import "CalendarDay.scss";
+@import "Modal.scss";
+@import "MeetingForm.scss";
+@import "InputTime.scss";
 
 
