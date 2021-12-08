@@ -58,6 +58,8 @@ function MeetingForm() {
 			for (let active of activeDates) {
 				if (JSON.stringify(date) !== JSON.stringify(setZeroTime(active))) {
 					newActiveDates.push(active);
+				} else {
+					localStorage.removeItem(JSON.stringify(active));
 				}
 			}
 			dispatch({ type: "REMOVE_DATE", payload: newActiveDates });
@@ -69,13 +71,12 @@ function MeetingForm() {
 			let finishDate = set(date, { hours: finishTime.hours, minutes: finishTime.minutes, seconds: 0 });
 			if (thisDate >= startDate && thisDate <= finishDate) {
 				newActiveDates = [...activeDates, thisDate];
+				localStorage.setItem(JSON.stringify(thisDate), JSON.stringify(thisDate));
 				dispatch({ type: "ADD_DATE", payload: newActiveDates });
 				closeModal();
 			}
 		}
 	};
-
-	console.log("Render: MeetingForm");
 
 	return (
 		<form className="meeting-form">

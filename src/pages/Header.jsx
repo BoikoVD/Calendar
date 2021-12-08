@@ -14,8 +14,6 @@ function Header() {
 		});
 	});
 
-	console.log("Render: Header");
-
 	return (
 		<header className="header">
 			<Logo />

@@ -50,8 +50,6 @@ function CalendarDay({ day, thisDate, currentDate }) {
 		openModal(date);
 	}
 
-	console.log('Render: CalendarDay');
-
 	return (
 		<div className="day-wrapper">
 			<span onClick={clickOnDay}

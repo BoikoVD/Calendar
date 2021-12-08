@@ -4,8 +4,6 @@ import AboutMe from '../pages/AboutMe';
 
 function AppRouter() {
 
-	console.log('Render: AppRouter');
-
 	return (
 		<Switch>
 			<Route path="/home">

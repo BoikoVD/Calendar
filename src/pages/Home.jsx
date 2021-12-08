@@ -4,8 +4,6 @@ import bg from "../assets/img/bg2.jpg";
 
 function Home() {
 
-	console.log('Render: Home');
-
 	return (
 		<div className="home">
 			<div className="home__content">

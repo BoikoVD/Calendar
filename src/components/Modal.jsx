@@ -10,13 +10,11 @@ const Modal = () => {
 		dispatch({ type: "ON_MODAL", payload: false });
 	}
 
-	console.log("Render: Modal");
-
 	return (
 		<div className={isActive ? "modal active" : "modal"} onClick={closeModal}>
 			<div className="modal__wrapper" onClick={(e) => { e.stopPropagation() }}>
 				<MeetingForm />
-				<button onClick={closeModal} className="modal__close" type="button"></button>
+				<button onClick={closeModal} className="modal__close" type="button" aria-label='close modal'></button>
 			</div>
 		</div>
 	);

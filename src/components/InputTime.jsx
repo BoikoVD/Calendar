@@ -34,8 +34,6 @@ function InputTime({ time, setTime, getTimes, isActive }) {
 		}
 	});
 
-	console.log('Render: InputTime');
-
 	return (
 		<div className="input-time-wrapper">
 			<InputMask

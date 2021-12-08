@@ -1,7 +1,5 @@
 function AboutMe() {
 
-	console.log('Render: AboutMe');
-
 	return (
 		<div className="about-me">
 			<div className="about-me__content">

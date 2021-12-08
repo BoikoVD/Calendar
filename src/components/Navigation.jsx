@@ -8,8 +8,6 @@ function Navigation({ navRef, burgerRef }) {
 		navRef.current.classList.remove("active");
 	}
 
-	console.log("Render: Navigation");
-
 	return (
 		<nav className="nav" ref={navRef}>
 			<ul className="nav__list">

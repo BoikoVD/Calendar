@@ -35,15 +35,13 @@ function Calendar() {
 		setThisDate(addMonths(thisDate, 1));
 	};
 
-	console.log('Render: Calendar');
-
 	return (
 		<div className="calendar">
 			<div className="calendar__content">
 				<div className="calendar__header header-cal">
-					<button className="header-cal__nav-btn header-cal__nav-btn_prev" onClick={clockOnPrevBtn}></button>
+					<button className="header-cal__nav-btn header-cal__nav-btn_prev" onClick={clockOnPrevBtn} aria-label='previous month'></button>
 					<div className="header-cal__title">{format(thisDate, "LLLL") + ' ' + format(thisDate, "yyyy")}</div>
-					<button className="header-cal__nav-btn header-cal__nav-btn_next" onClick={clickOnNextBtn}></button>
+					<button className="header-cal__nav-btn header-cal__nav-btn_next" onClick={clickOnNextBtn} aria-label='next month'></button>
 				</div>
 				<div className="calendar__body-cal body-cal">
 					{eachDaysOfCalendar.map(day => { return <CalendarDay day={day} thisDate={thisDate} currentDate={currentDate} key={day} /> })}
